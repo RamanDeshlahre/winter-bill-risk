@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data: raw data is downloaded separately (see README), generated data is rebuilt by the pipeline
+data/raw/**
+!data/raw/**/.gitkeep
+data/marts/*.csv
+data/outputs/
+*.duckdb
+*.duckdb.wal
+
+# dbt
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+logs/
+
+# Secrets and OS files
+.env
+.DS_Store
