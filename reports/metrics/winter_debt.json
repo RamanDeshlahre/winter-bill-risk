@@ -1,0 +1,80 @@
+{
+  "households_analysed": 545,
+  "households_by_group": {
+    "Affluent": 265,
+    "Comfortable": 145,
+    "Adversity": 135
+  },
+  "median_winter_uplift_vs_summer": {
+    "Adversity": 0.279,
+    "Affluent": 0.412,
+    "Comfortable": 0.349
+  },
+  "avg_monthly_direct_debit_gbp": 112.95,
+  "share_in_debit_by_month": {
+    "2013-10": 0.446,
+    "2013-11": 0.585,
+    "2013-12": 0.734,
+    "2014-01": 0.8,
+    "2014-02": 0.736
+  },
+  "mean_balance_by_month_gbp": {
+    "2013-10": 2.34,
+    "2013-11": -4.93,
+    "2013-12": -24.1,
+    "2014-01": -40.73,
+    "2014-02": -40.02
+  },
+  "median_peak_debt_gbp_by_group": {
+    "Adversity": 21.14,
+    "Affluent": 36.6,
+    "Comfortable": 20.64
+  },
+  "at_risk_share_overall": 0.308,
+  "at_risk_share_by_group": {
+    "Adversity": 0.244,
+    "Affluent": 0.362,
+    "Comfortable": 0.269
+  },
+  "median_winter_bill_change_vs_prior_winter": -0.031,
+  "median_seasonal_only_peak_debt_gbp": 54.97,
+  "early_warning_auc": {
+    "Target by area (Adversity = at risk)": 0.463,
+    "October prediction from last year's usage": 0.645,
+    "Account balance at end of October": 0.731,
+    "Account balance at end of November": 0.863,
+    "Account balance at end of December": 0.953
+  },
+  "recommended_trigger": {
+    "rule": "Contact if, at end of November, the account is behind by >= 10% of a monthly Direct Debit",
+    "share_contacted": 0.334,
+    "precision": 0.714,
+    "share_of_at_risk_caught": 0.774
+  },
+  "support_segments": [
+    {
+      "support_segment": "1. Priority support",
+      "households": 43,
+      "at_risk_rate": 0.605,
+      "median_peak_debt_gbp": 42.885
+    },
+    {
+      "support_segment": "2. Direct Debit review",
+      "households": 139,
+      "at_risk_rate": 0.748,
+      "median_peak_debt_gbp": 76.367
+    },
+    {
+      "support_segment": "3. Light-touch information",
+      "households": 92,
+      "at_risk_rate": 0.076,
+      "median_peak_debt_gbp": 6.518
+    },
+    {
+      "support_segment": "4. No action",
+      "households": 271,
+      "at_risk_rate": 0.114,
+      "median_peak_debt_gbp": 15.724
+    }
+  ]
+}

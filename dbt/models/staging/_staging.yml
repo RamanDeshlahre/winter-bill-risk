@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: stg_meter_readings_daily
+    description: "Daily smart meter readings, one row per household per day."
+    columns:
+      - name: reading_id
+        description: "Household + date. Primary key."
+        tests: [unique, not_null]
+      - name: household_id
+        tests: [not_null]
+      - name: reading_date
+        tests: [not_null]
+      - name: halfhour_readings
+        description: "Number of half-hourly readings received that day (48 = complete)."
+        tests: [not_null]
+
+  - name: stg_households
+    description: "Household attributes: tariff group and Acorn socio-economic group."
+    columns:
+      - name: household_id
+        tests: [unique, not_null]
+      - name: tariff_group
+        tests:
+          - accepted_values:
+              values: ["standard_flat", "dynamic_tou"]
+      - name: acorn_group
+        tests:
+          - accepted_values:
+              values: ["Affluent", "Comfortable", "Adversity", "Unknown"]
+
+  - name: stg_weather_daily
+    description: "Daily London weather with heating degree days (base 15.5C). Timezone bug fixed here."
+    columns:
+      - name: weather_date
+        tests: [unique, not_null]
+      - name: heating_degree_days
+        tests: [not_null]
+
+  - name: stg_credit_customers
+    description: "UCI credit card customers, months renamed m1 (most recent) to m6 (oldest)."
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: defaulted_next_month
+        tests:
+          - not_null
+          - accepted_values:
+              values: [0, 1]
+              quote: false

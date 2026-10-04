@@ -1,0 +1,116 @@
+{
+  "customers": 30000,
+  "default_rate": 0.221,
+  "test_customers": 6000,
+  "Logistic regression": {
+    "roc_auc": 0.748,
+    "pr_auc": 0.514,
+    "brier": 0.1407
+  },
+  "Gradient boosting": {
+    "roc_auc": 0.776,
+    "pr_auc": 0.552,
+    "brier": 0.1355
+  },
+  "gradient_boosting_auc_if_protected_features_added": 0.777,
+  "tiers_test_set": [
+    {
+      "tier": "1. Proactive support",
+      "customers": 600,
+      "default_rate": 0.688,
+      "defaulters": 413,
+      "share_of_all_defaulters": 0.311
+    },
+    {
+      "tier": "2. Monitor",
+      "customers": 1200,
+      "default_rate": 0.343,
+      "defaulters": 412,
+      "share_of_all_defaulters": 0.31
+    },
+    {
+      "tier": "3. Standard",
+      "customers": 4200,
+      "default_rate": 0.12,
+      "defaulters": 502,
+      "share_of_all_defaulters": 0.378
+    }
+  ],
+  "top_30pct_capture_of_defaulters": 0.622,
+  "fairness_by_sex": [
+    {
+      "sex": "female",
+      "customers": 3598,
+      "actual_default_rate": 0.213,
+      "share_offered_support": 0.096,
+      "share_of_defaulters_reached": 0.615,
+      "precision_of_support_tier": 0.703,
+      "avg_predicted_risk": 0.216,
+      "calibration_gap": 0.003
+    },
+    {
+      "sex": "male",
+      "customers": 2402,
+      "actual_default_rate": 0.234,
+      "share_offered_support": 0.105,
+      "share_of_defaulters_reached": 0.631,
+      "precision_of_support_tier": 0.668,
+      "avg_predicted_risk": 0.227,
+      "calibration_gap": -0.007
+    }
+  ],
+  "fairness_by_age_band": [
+    {
+      "age_band": "21-29",
+      "customers": 1912,
+      "actual_default_rate": 0.223,
+      "share_offered_support": 0.12,
+      "share_of_defaulters_reached": 0.658,
+      "precision_of_support_tier": 0.672,
+      "avg_predicted_risk": 0.237,
+      "calibration_gap": 0.013
+    },
+    {
+      "age_band": "30-39",
+      "customers": 2198,
+      "actual_default_rate": 0.206,
+      "share_offered_support": 0.084,
+      "share_of_defaulters_reached": 0.62,
+      "precision_of_support_tier": 0.679,
+      "avg_predicted_risk": 0.205,
+      "calibration_gap": -0.001
+    },
+    {
+      "age_band": "40-49",
+      "customers": 1341,
+      "actual_default_rate": 0.233,
+      "share_offered_support": 0.092,
+      "share_of_defaulters_reached": 0.583,
+      "precision_of_support_tier": 0.726,
+      "avg_predicted_risk": 0.217,
+      "calibration_gap": -0.016
+    },
+    {
+      "age_band": "50+",
+      "customers": 549,
+      "actual_default_rate": 0.246,
+      "share_offered_support": 0.115,
+      "share_of_defaulters_reached": 0.6,
+      "precision_of_support_tier": 0.698,
+      "avg_predicted_risk": 0.232,
+      "calibration_gap": -0.014
+    }
+  ],
+  "reach_ratio_min_over_max_sex": 0.975,
+  "reach_ratio_min_over_max_age_band": 0.886,
+  "top_features_permutation_auc_drop": {
+    "months_late_now": 0.0378,
+    "months_late_6m": 0.0305,
+    "log_credit_limit": 0.0251,
+    "avg_utilisation_6m": 0.025,
+    "utilisation_now": 0.0151,
+    "bill_growth_3m": 0.0041,
+    "months_no_payment_5m": 0.0024,
+    "max_months_late_6m": 0.0021
+  }
+}

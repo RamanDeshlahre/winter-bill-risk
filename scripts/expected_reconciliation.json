@@ -1,0 +1,19 @@
+{
+  "rows": {
+    "dim_households": 600,
+    "fct_household_month": 12374,
+    "mart_dd_winter_balance": 2725,
+    "mart_household_winter_risk": 545,
+    "mart_meter_anomaly_features": 600,
+    "mart_daily_usage_by_group": 5456,
+    "mart_credit_features": 30000
+  },
+  "values": {
+    "sum_peak_debt_gbp": 30614.49,
+    "mean_direct_debit_gbp": 112.95,
+    "households_at_risk": 168,
+    "sum_monthly_bills_gbp": 1401107.11,
+    "sum_months_late_6m": 25026,
+    "mean_avg_pay_ratio_5m": 0.4193
+  }
+}

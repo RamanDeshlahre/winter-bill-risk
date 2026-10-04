@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: dim_households
+    description: "One row per household with smart meter data: Acorn group, tariff and data coverage."
+    columns:
+      - name: household_id
+        tests: [unique, not_null]
+      - name: acorn_group
+        tests:
+          - accepted_values:
+              values: ["Affluent", "Comfortable", "Adversity", "Unknown"]
+
+  - name: fct_household_month
+    description: "Household x month usage and estimated bill at Oct-Dec 2026 Ofgem price cap rates."
+    columns:
+      - name: household_month_id
+        tests: [unique, not_null]
+      - name: est_bill_gbp
+        tests: [not_null]
+      - name: coverage
+        description: "Share of the month's days with a complete set of readings."
+
+  - name: mart_dd_winter_balance
+    description: "Direct Debit account balance, month by month, for winter 2013/14."
+    columns:
+      - name: household_month_id
+        tests: [unique, not_null]
+      - name: account_balance_gbp
+        description: "Cumulative Direct Debit paid minus bills. Negative = customer owes money."
+        tests: [not_null]
+
+  - name: mart_household_winter_risk
+    description: "Winter debit outcome per household, plus features known in October."
+    columns:
+      - name: household_id
+        tests: [unique, not_null]
+      - name: peak_debt_gbp
+        description: "Largest amount owed at any month-end during the winter."
+        tests: [not_null]
+      - name: is_at_risk
+        description: "True if the peak debt reached at least var('at_risk_debt_months') of a monthly Direct Debit."
+
+  - name: mart_meter_anomaly_features
+    description: "Household-level signals of unusual meter readings, for the review queue."
+    columns:
+      - name: household_id
+        tests: [unique, not_null]
+
+  - name: mart_daily_usage_by_group
+    description: "Daily average usage by Acorn group and tariff, with weather. For Tableau."
+
+  - name: mart_credit_features
+    description: "Credit customers with engineered payment-behaviour features."
+    columns:
+      - name: customer_id
+        tests: [unique, not_null]
+      - name: defaulted_next_month
+        tests:
+          - accepted_values:
+              values: [0, 1]
+              quote: false

@@ -1,0 +1,8 @@
+# Local DuckDB database. Run dbt from inside the dbt/ folder with: dbt build --profiles-dir .
+winter_bill_risk:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/winter_bill_risk.duckdb
+      threads: 4

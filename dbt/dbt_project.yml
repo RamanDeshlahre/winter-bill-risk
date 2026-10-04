@@ -1,0 +1,37 @@
+name: winter_bill_risk
+version: "1.0.0"
+config-version: 2
+profile: winter_bill_risk
+
+model-paths: ["models"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  # Paths are relative to the dbt/ folder (run dbt from inside dbt/)
+  raw_path: "../data/raw"
+  # Ofgem price cap, 1 Oct - 31 Dec 2026, GB average Direct Debit, electricity (VAT removed)
+  unit_rate_gbp_per_kwh: 0.2632
+  standing_charge_gbp_per_day: 0.5483
+  # Heating degree day base temperature (UK convention)
+  hdd_base_temp_c: 15.5
+  # Direct Debit simulation windows
+  baseline_start: "2012-10-01"
+  baseline_end: "2013-09-30"
+  winter_start: "2013-10-01"
+  winter_end: "2014-02-28"
+  # Minimum share of complete days a household needs in a window to be analysed
+  min_coverage: 0.9
+  # A household is "at risk" if, at its worst point, it is behind by at least this
+  # many months of Direct Debit payments
+  at_risk_debt_months: 0.5
+
+models:
+  winter_bill_risk:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

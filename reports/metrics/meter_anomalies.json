@@ -1,0 +1,32 @@
+{
+  "households_screened": 597,
+  "households_in_review_queue": 34,
+  "share_in_review_queue": 0.057,
+  "rule_counts": {
+    "near_zero_14d": 17,
+    "sustained_drop_28d": 18,
+    "sustained_rise_14d": 4,
+    "data_gap_14d": 4
+  },
+  "flagged_by_model_only": 4,
+  "flagged_by_rules_and_model": 14,
+  "queue_by_explanation": {
+    "Sudden drop to near zero": 12,
+    "Sustained drop vs weather": 8,
+    "Likely empty home": 5,
+    "Communications fault": 4,
+    "Unusual pattern (model only)": 4,
+    "Sustained increase": 1
+  },
+  "queue_by_acorn_group": {
+    "Affluent": 16,
+    "Adversity": 9,
+    "Comfortable": 8,
+    "Unknown": 1
+  },
+  "example_households": [
+    "MAC003298",
+    "MAC003422",
+    "MAC002050"
+  ]
+}
